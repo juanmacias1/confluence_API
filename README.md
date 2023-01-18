@@ -31,5 +31,4 @@
     <h2>Examples</h2>
     <p>Get page information:</p>
     <pre>python3 get_create_update.py -e &lt;your-navvis-email@navvis.com&gt; -t &lt;Your_API_Token&gt; --mode get_page_info --page-id 545587201</pre>
-    <p>Create an empty page:</p>
-    <pre>python3 get_create_update.py -e &lt;
+
