@@ -4,6 +4,7 @@
     <title>README</title>
   </head>
   <body>
+    <a href="#about-the-project">About The Project</a>
     <p>This script is used to interact with the Confluence API to perform actions on pages such as getting page information, creating an empty page, and updating a page. The script utilizes the requests library to make API calls and argparse to handle command-line arguments.</p>
     <h2>Command-Line Arguments</h2>
     <p>The following command-line arguments are required to use the script:</p>
