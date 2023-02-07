@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>README</title>
   </head>
   <body>
     <h1>About The Project</h1>
