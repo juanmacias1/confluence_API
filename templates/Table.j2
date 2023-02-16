@@ -1,0 +1,10 @@
+{% set colgroup = "<col style='width: 226.67px;'/><col style='width: 226.67px;'/><col style='width: 226.67px;'/>" -%}
+<table data-layout='default' ac:local-id='1f3518c4-e712-4df2-8720-e68fd37682d5'><colgroup>{{colgroup}}</colgroup><tbody>
+{%- for row in rows -%}
+    <tr>
+        {%- for cell in row -%}
+            <td><p>{{ cell }}</p></td>
+        {%- endfor -%}
+    </tr>
+{%- endfor -%}
+</tbody></table>
