@@ -1,7 +1,7 @@
 {
-    "base_url": "https://navvis.atlassian.net/wiki/rest/api/",
+    "base_url": "https://atlassiandomain.atlassian.net/wiki/rest/api/",
     "credentials": {
-        "email": "mr.crowley@ozzyosbournemailserver.com",
+        "email": "mr.crowley@atlassiandomain.com",
         "token": "I4mG01ng00FTh3R41lSonTh3Cr4zyTr41n"
     }
 }
