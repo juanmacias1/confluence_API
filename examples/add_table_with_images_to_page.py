@@ -36,7 +36,7 @@ table1_data = [
     ["", Image(image_filenames[0]), "Nice text", "Much words"],
     ["", Image(image_filenames[2]), "Noch mehr Text", "Mais texto"],
 ]
-my_table1 = Table.from_data(table1_data)
+my_table1 = Table(table1_data)
 
 # Uploads the generated table to the page. CAREFUL: This overwrites the entire page content! (work TBD)
 page.add_containers_to_body([my_table1])
