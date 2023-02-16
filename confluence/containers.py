@@ -15,7 +15,7 @@ class Image(Container):
         super().__init__(template_file_path)
         self.filename = filename
 
-    def __repr__(self) -> str:
+    def __str__(self) -> str:
         return self.render()
 
     def render(self):
