@@ -47,6 +47,7 @@ class ConfluenceClient:
 
     def __post_init__(self):
         self.auth = HTTPBasicAuth(self.credentials.email, self.credentials.token)
+        self.content_base_url = self.base_url + "content/"
 
     @staticmethod
     def from_json_file(json_filepath: str) -> ConfluenceClient:
@@ -58,7 +59,6 @@ class ConfluenceClient:
         )
 
     def create_page(self, page_title: str, page_space: Space) -> Page:
-        url = self.base_url
         data = {
             "type": "page",
             "title": page_title,
@@ -66,15 +66,15 @@ class ConfluenceClient:
         }
 
         # Creates page on confluence and returns an object representing the page
-        content = self._make_request("POST", url, json.dumps(data))
+        content = self._make_request("POST", self.content_base_url, json.dumps(data))
         return content
 
     def get_page(self, page_id: str) -> dict:
-        url = self.base_url + page_id + EXPANSION_SUFFIX
+        url = self.content_base_url + page_id + EXPANSION_SUFFIX
         return self._make_request("GET", url)
 
     def get_page_attachments_list(self, id):
-        url = self.base_url + id + "/child/attachment"
+        url = self.content_base_url + id + "/child/attachment"
         data = self._make_request("GET", url)
         attachment_list = []
         for attachment in data["results"]:
@@ -96,11 +96,8 @@ class ConfluenceClient:
                 + f"\r\n--{BOUNDARY}--\r\n".encode()
             )
 
-        page_content = self.get_page(page_id)
-        base_url = page_content["_links"]["base"]
-
         # This is also ugly and shouldn't be hardcoded
-        url = self.base_url + page_id + "/child/attachment"
+        url = self.content_base_url + page_id + "/child/attachment"
         for filepath in filepaths:
             multipart_data = _make_multipart_data(filepath)
             logging.debug(f"Attempting to attach file {filepath} to page {page_id}")

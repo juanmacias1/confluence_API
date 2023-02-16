@@ -62,12 +62,13 @@ class Page:
             },
         }
         return self.confluence_client._make_request(
-            "PUT", self.confluence_client.base_url + self.id, json.dumps(payload)
+            "PUT",
+            self.confluence_client.base_url + "/content/" + self.id,
+            json.dumps(payload),
         )
         ####################################################################
 
     def attach_files(self, files: Iterable[Path]) -> dict:
-        # TBD: Add optional caching
         return self.confluence_client.attach_files_to_page(self.id, files)
 
     def get_attachments(self) -> dict:
